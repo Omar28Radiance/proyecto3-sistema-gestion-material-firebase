@@ -16,9 +16,10 @@ import {
 const Register = () => {
     const navigate = useNavigate();
 
-    const registrarUsuario = (e) => {
-        // e.preventDefault();
+    const registrarUsuario = (usuario) => {
         
+        
+        navigate('/app/dashboard', { replace: true });
     }
 
     return (
@@ -53,9 +54,7 @@ const Register = () => {
                             })
                         }
                         onSubmit={(usuario) => {
-                            alert(usuario.firstName)
-                            alert(usuario.email)
-                            // navigate('/app/dashboard', { replace: true });
+                            registrarUsuario(usuario);
                         }}
                     >
                         {({
@@ -169,7 +168,6 @@ const Register = () => {
                                 )}
                                 <Box sx={{ py: 2 }}>
                                     <Button
-                                        onCLick={registrarUsuario}
                                         color="primary"
                                         disabled={isSubmitting}
                                         fullWidth

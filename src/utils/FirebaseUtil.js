@@ -21,3 +21,5 @@ export function firebaseConfig() {
     const app = initializeApp(config);
     const analytics = getAnalytics(app);
 }
+
+export function firebaseRegistrarUsuario(email, password) {}
