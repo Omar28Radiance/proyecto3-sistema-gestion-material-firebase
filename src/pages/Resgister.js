@@ -16,6 +16,11 @@ import {
 const Register = () => {
     const navigate = useNavigate();
 
+    const registrarUsuario = (e) => {
+        // e.preventDefault();
+        
+    }
+
     return (
         <>
             <Helmet>
@@ -47,8 +52,10 @@ const Register = () => {
                                 policy: Yup.boolean().oneOf([true], 'This field is checked')
                             })
                         }
-                        onSubmit={() => {
-                            navigate('/app/dashboard', { replace: true });
+                        onSubmit={(usuario) => {
+                            alert(usuario.firstName)
+                            alert(usuario.email)
+                            // navigate('/app/dashboard', { replace: true });
                         }}
                     >
                         {({
@@ -162,6 +169,7 @@ const Register = () => {
                                 )}
                                 <Box sx={{ py: 2 }}>
                                     <Button
+                                        onCLick={registrarUsuario}
                                         color="primary"
                                         disabled={isSubmitting}
                                         fullWidth
