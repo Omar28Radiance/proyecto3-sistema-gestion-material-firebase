@@ -1,4 +1,5 @@
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { firebaseRegistrarUsuario } from '../utils/FirebaseUtil';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -17,7 +18,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const registrarUsuario = (usuario) => {
-        
+        firebaseRegistrarUsuario(usuario.email, usuario.password);
         
         navigate('/app/dashboard', { replace: true });
     }
