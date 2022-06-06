@@ -40,7 +40,7 @@ const Login = () => {
                         validationSchema={Yup.object().shape({
                             email: Yup.string().email('Must be a valid email').max(255).required('Email is required'), password: Yup.string().max(255).required('Password is required')
                         })}
-                        onSubmit={() => {
+                        onSubmit={credenciales => {
                             navigate('/app/dashboard', { replace: true });
                         }}
                     >
@@ -73,22 +73,7 @@ const Login = () => {
                                     container
                                     spacing={3}
                                 >
-                                    <Grid
-                                        item
-                                        xs={12}
-                                        md={6}
-                                    >
-                                        <Button
-                                            color="primary"
-                                            fullWidth
-                                            startIcon={<FacebbokIcon />}
-                                            onCLick={handleSubmit}
-                                            size="large"
-                                            variant="contained"
-                                        >
-                                            Login with Facebook
-                                        </Button>
-                                    </Grid>
+                                    
                                     <Grid
                                         item
                                         xs={12}
@@ -166,10 +151,10 @@ const Login = () => {
             </Box>
         </>
     )
-}
+};
 
 
 
 
 
-
+export default Login;
