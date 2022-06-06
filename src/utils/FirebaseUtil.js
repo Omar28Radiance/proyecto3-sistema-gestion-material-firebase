@@ -30,6 +30,9 @@ export function firebaseRegistrarUsuario(email, password) {
     })
 }
 
-export function firebaseIniciarSesion(email, password) {
-    signInWithEmailAndPassword(getAuth(), email, password)
+export async function firebaseIniciarSesion(email, password) {
+    let credenciales = await signInWithEmailAndPassword(getAuth(), email, password);
+    //credenciales.user
+    return true;
 }
+//COntinuar video desde minuto 03:56:47

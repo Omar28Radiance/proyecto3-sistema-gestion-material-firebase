@@ -6,21 +6,29 @@ import {
     Box,
     Button,
     Container,
-    Grid,
     Link,
     TextField,
     Typography
 } from '@material-ui/core';
-import FacebookIcon from '../icons/Facebook';
-import GoogleIcon from '../icons/Google';
+import { firebaseIniciarSesion } from '../utils/FirebaseUtil';
 
 const Login = () => {
     const navigate = useNavigate();
 
+    const iniciarSesion = async credenciales => {
+        let sesionIniciada = await firebaseIniciarSesion(credenciales.email, credenciales.password);
+
+        if (sesionIniciada) {
+            navigate('/app/dashboard', { replace: true });
+        } else {
+            alert ('Las credenciales no son correctas');
+        }
+    }
+
     return (
         <>
             <Helmet>
-                <title>Register | Material kit</title>
+                <title>Login | Material kit</title>
             </Helmet>
             <Box
                 sx={{
@@ -28,21 +36,19 @@ const Login = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100%',
-                    justifyCOntent: 'center'
+                    justifyContent: 'center'
                 }}
             >
                 <Container maxWidth="sm">
                     <Formik
-                        initialValuer={{
+                        initialValues={{
                             email: 'demo@devias.io',
                             password: 'Password123'
                         }}
                         validationSchema={Yup.object().shape({
                             email: Yup.string().email('Must be a valid email').max(255).required('Email is required'), password: Yup.string().max(255).required('Password is required')
                         })}
-                        onSubmit={credenciales => {
-                            navigate('/app/dashboard', { replace: true });
-                        }}
+                        onSubmit={iniciarSesion}
                     >
                         {({
                             errors,
@@ -69,73 +75,69 @@ const Login = () => {
                                         Sign in on the internal platform
                                     </Typography>
                                 </Box>
-                                
+
+                                <TextField
+                                    error={Boolean(touched.email && errors.email)}
+                                    fullWidth
+                                    helperText={touched.email && errors.email}
+                                    label="Email Address"
+                                    margin="normal"
+                                    name="email"
+                                    onBLur={handleBlur}
+                                    onChange={handleChange}
+                                    type="email"
+                                    value={values.email}
+                                    variant="outlined"
+                                />
+                                <TextField
+                                    error={Boolean(touched.password && errors.password)}
+                                    fullWidth
+                                    helperText={touched.password && errors.password}
+                                    label="Password"
+                                    margin="normal"
+                                    name="password"
+                                    onBLur={handleBlur}
+                                    onChange={handleChange}
+                                    type="password"
+                                    value={values.password}
+                                    variant="outlined"
+                                />
                                 <Box
                                     sx={{
-                                        pb: 1,
-                                        pt: 3
+                                        alignItems: 'center',
+                                        display: 'flex',
+                                        ml: -1
                                     }}
                                 >
+                                    <Checkbox
+                                        checked={values.policy}
+                                        name="policy"
+                                        onChange={handleChange}
+                                    />
                                     <Typography
-                                        align="center"
                                         color="textSecondary"
                                         variant="body1"
                                     >
-                                        or login with email address
+                                        I have read the
+                                        {''}
+                                        <Link
+                                            color="primary"
+                                            component={RouterLink}
+                                            to="#"
+                                            underline="always"
+                                            variant="h6"
+                                        >
+                                            Sign up
+                                        </Link>
                                     </Typography>
                                 </Box>
-                                <TextField
-                                error={Boolean(touched.email && errors.email)}
-                                fullWidth
-                                helperText={touched.email && errors.email}
-                                label="Email Address"
-                                margin="normal"
-                                name="email"
-                                onBLur={handleBlur}
-                                onChange={handleChange}
-                                type="email"
-                                value={values.email}
-                                variant="outlined"
-                                >
-                                    <TextField
-                                        error={Boolean(touched.email && errors.email)}
-                                        fullWidth
-                                        helperText={touched.email && errors.email}
-                                        label="Email Address"
-                                        margin="normal"
-                                        name="email"
-                                        onBLur={handleBlur}
-                                        onChange={handleChange}
-                                        type="email"
-                                        value={values.email}
-                                        variant="outlined"
-                                    >
-                                        <TextField
-                                            error={Boolean(touched.password && errors.password)}
-                                            fullWidth
-                                            helperText={touched.password && errors.password}
-                                            label="Password"
-                                            margin="normal"
-                                            name="password"
-                                            onBLur={handleBlur}
-                                            onChange={handleChange}
-                                            type="password"
-                                            value={values.password}
-                                            variant="outlined"
-                                        ></TextField>
-                                    </TextField>
-                                </TextField>
                             </form>
                         )}
-                ></Formik>
+                    </Formik>
                 </Container>
             </Box>
         </>
     )
 };
-
-
-
-
 
 export default Login;
