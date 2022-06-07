@@ -3,11 +3,14 @@ import { Box, Container } from '@material-ui/core';
 import CustomerListResults from '../components/customer/CustomerListResults';
 import CustomerListToolbar from '../components/customer/CustomerListToolbar';
 import customers from '../_mocks_/customers';
+import { firebaseBuscar } from '../utils/FirebaseUtil';
 
 const CustomerList = () => {
 
-    
 
+    const buscarClientes = () => {
+        firebaseBuscar('clientes');
+    }
 
     return <>
         <Helmet>

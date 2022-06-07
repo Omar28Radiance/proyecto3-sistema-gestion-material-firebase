@@ -39,4 +39,6 @@ export async function firebaseIniciarSesion(email, password) {
     }
     return true;
 }
+
+export function firebaseBuscar() {}
 //Continuar video desde minuto 04:11:25
