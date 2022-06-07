@@ -103,12 +103,7 @@ const Login = () => {
                                     variant="outlined"
                                 />
                                 <Box
-                                    sx={{
-                                        alignItems: 'center',
-                                        display: 'flex',
-                                        ml: -1
-                                    }}
-                                >
+                                    sx={{ py: 2 }}>
                                     <Checkbox
                                         checked={values.policy}
                                         name="policy"

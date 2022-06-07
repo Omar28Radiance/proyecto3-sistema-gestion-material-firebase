@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,8 +31,12 @@ export function firebaseRegistrarUsuario(email, password) {
 }
 
 export async function firebaseIniciarSesion(email, password) {
-    let credenciales = await signInWithEmailAndPassword(getAuth(), email, password);
-    //credenciales.user
+    try {
+        let credenciales = await signInWithEmailAndPassword(getAuth(), email, password);
+        //credenciales.user
+    } catch(e) {
+        return false;
+    }
     return true;
 }
-//COntinuar video desde minuto 03:56:47
+//Continuar video desde minuto 04:11:25
