@@ -43,5 +43,9 @@ export async function firebaseIniciarSesion(email, password) {
     return true;
 }
 
-export function firebaseBuscar(coleccionABuscar) {}
-//Continuar video desde minuto 04:11:25
+export async function firebaseBuscar(coleccionABuscar) {
+    let consulta = collection(getFirestore(), coleccionABuscar);
+    let resultado = await getDocs(consulta);
+    resultado.forEach
+}
+//Continuar video desde minuto 04:24:16
