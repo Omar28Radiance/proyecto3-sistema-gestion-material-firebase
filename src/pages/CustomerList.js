@@ -4,12 +4,17 @@ import CustomerListResults from '../components/customer/CustomerListResults';
 import CustomerListToolbar from '../components/customer/CustomerListToolbar';
 import customers from '../_mocks_/customers';
 import { firebaseBuscar } from '../utils/FirebaseUtil';
+import { useEffect } from 'react';
 
 const CustomerList = () => {
 
+    useEffect(() => {
+        buscarClientes();
+    }, [])
 
     const buscarClientes = () => {
-        firebaseBuscar('clientes');
+        let clientes = await firebaseBuscar('clientes');
+        debugger;
     }
 
     return <>

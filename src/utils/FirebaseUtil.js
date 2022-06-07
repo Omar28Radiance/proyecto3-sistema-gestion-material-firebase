@@ -2,6 +2,9 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from "firebase/auth";
+
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -40,5 +43,5 @@ export async function firebaseIniciarSesion(email, password) {
     return true;
 }
 
-export function firebaseBuscar() {}
+export function firebaseBuscar(coleccionABuscar) {}
 //Continuar video desde minuto 04:11:25
