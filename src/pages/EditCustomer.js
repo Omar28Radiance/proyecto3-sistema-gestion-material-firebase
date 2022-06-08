@@ -35,23 +35,20 @@ const EditCustomer = () => {
                     flexDirection: 'column',
                     height: '100%',
                     justifyContent: 'center'
-                }}>
+                }}
+                >
                 <Container maxWidth="sm">
                     <Formik
                         initialValues={{
                             email: '',
                             firstName: '',
                             lastName: '',
-                            password: '',
-                            policy: false
                         }}
                         validationSchema={
                             Yup.object().shape({
                                 email: Yup.string().email('Must be valid email').max(255).required('Email is required'),
                                 firstName: Yup.string().max(255).required('First name is required'),
-                                lastName: Yup.string().max(255).required('Last name is required'),
-                                password: Yup.string().max(255).required('password is required'),
-                                policy: Yup.boolean().oneOf([true], 'This field is checked')
+                                lastName: Yup.string().max(255).required('Last name is required')
                             })
                         }
                         onSubmit={(usuario) => {
@@ -120,11 +117,6 @@ const EditCustomer = () => {
                                     value={values.firstName}
                                     variant="outlined"
                                 />
-                                {Boolean(touched.policy && errors.policy) && (
-                                    <FormHelperText error>
-                                        {errors.policy}
-                                    </FormHelperText>
-                                )}
                                 <Box sx={{ py: 2 }}>
                                     <Button
                                         color="primary"
