@@ -9,13 +9,13 @@ import {
     TextField,
     Typography
 } from '@material-ui/core';
-import { firebaseGuardar } from '../utils/FirebaseUtil';
+import { firebaseCrear } from '../utils/FirebaseUtil';
 
 const EditCustomer = () => {
     const navigate = useNavigate();
 
     const crearCliente = (cliente) => {
-        firebaseGuardar('clientes', cliente)
+        firebaseCrear('clientes', cliente)
         firebasecrearCliente(usuario.email, usuario.password);
         alert("El usuario se registró con éxito.")
         navigate('/login', { replace: true });
