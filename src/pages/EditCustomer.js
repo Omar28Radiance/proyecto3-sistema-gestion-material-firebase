@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { firebaseRegistrarUsuario } from '../utils/FirebaseUtil';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -14,8 +13,8 @@ import {
 const EditCustomer = () => {
     const navigate = useNavigate();
 
-    const registrarUsuario = (usuario) => {
-        firebaseRegistrarUsuario(usuario.email, usuario.password);
+    const crearCliente = (usuario) => {
+        firebasecrearCliente(usuario.email, usuario.password);
         alert("El usuario se registró con éxito.")
         navigate('/login', { replace: true });
     }
@@ -51,7 +50,7 @@ const EditCustomer = () => {
                             })
                         }
                         onSubmit={(usuario) => {
-                            registrarUsuario(usuario);
+                            crearCliente(usuario);
                         }}
                     >
                         {({

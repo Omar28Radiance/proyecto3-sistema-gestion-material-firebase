@@ -2,8 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from "firebase/auth";
-
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, getDocs, setDoc, getFirestore } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -54,4 +53,8 @@ export async function firebaseBuscar(coleccionABuscar) {
     });
     return listado;
 }
-//Continuar video desde minuto 04:24:40
+
+function firebaseGuardar(coleccion, documento) {
+    setDoc(documento.id, documento);
+}
+//Continuar video desde minuto 04:42:52
