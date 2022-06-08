@@ -124,6 +124,17 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                     <TableCell>
                                         {customer.phone}
                                     </TableCell>
+                                    <TableCell>
+                                        <Button
+                                            onCLick={() => {
+                                                navigate('/app/customer-new', { replace: true });
+                                            }}
+                                            color="primary"
+                                            variant="contained"
+                                        >
+                                            Add customer
+                                        </Button>
+                                    </TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
