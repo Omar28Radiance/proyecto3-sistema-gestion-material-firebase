@@ -1,4 +1,4 @@
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { firebaseRegistrarUsuario } from '../utils/FirebaseUtil';
 import { Helmet } from 'react-helmet';
 import * as Yup from 'yup';
@@ -6,10 +6,7 @@ import { Formik } from 'formik';
 import {
     Box,
     Button,
-    Checkbox,
     Container,
-    FormHelperText,
-    Link,
     TextField,
     Typography
 } from '@material-ui/core';
@@ -86,15 +83,15 @@ const EditCustomer = () => {
                                     variant="outlined"
                                 />
                                 <TextField
-                                    error={Boolean(touched.password && errors.lastName)}
+                                    error={Boolean(touched.lastName && errors.lastName)}
                                     fullWidth
-                                    helperText={touched.firstName && errors.lastName}
+                                    helperText={touched.lastName && errors.lastName}
                                     label="Last name"
                                     margin="normal"
                                     name="lastName"
                                     onBlur={handleBlur}
                                     onchange={handleChange}
-                                    value={values.firstName}
+                                    value={values.lastName}
                                     variant="outlined"
                                 />
                                 <TextField
@@ -107,7 +104,20 @@ const EditCustomer = () => {
                                     onBlur={handleBlur}
                                     onchange={handleChange}
                                     type="email"
-                                    value={values.firstName}
+                                    value={values.email}
+                                    variant="outlined"
+                                />
+                                <TextField
+                                    error={Boolean(touched.phone && errors.phone)}
+                                    fullWidth
+                                    helperText={touched.phone && errors.phone}
+                                    label="Phone Number"
+                                    margin="normal"
+                                    name="phone"
+                                    onBlur={handleBlur}
+                                    onchange={handleChange}
+                                    type="phone"
+                                    value={values.phone}
                                     variant="outlined"
                                 />
                                 <Box sx={{ py: 2 }}>
