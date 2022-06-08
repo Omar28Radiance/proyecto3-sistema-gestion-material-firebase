@@ -23,29 +23,37 @@ const CustomerListToolbar = (props) => {
         >
 
             <Button
-                onCLick={() => {}}
+                onCLick={() => { }}
                 color="primary"
                 variant="contained"
             >
                 Add customer
             </Button>
         </Box>
-        <Box sx={{ maxWidth: 500 }}>
-            <TextField
-                fullWidth
-                InputProps={{
-                    startAdorment: (
-                        <InputAdorment position="start">
-                            <SvgIcon
-                                fontSize="small"
-                                color="action"
-                            >
-                                <SearchIcon />
-                            </SvgIcon>
-                        </InputAdorment>
-                    )
-                }}
-            ></TextField>
+        <Box sx={{ mt: 3 }}>
+            <Card>
+                <CardContent>
+                    <Box sx={{ maxWidth: 500 }}>
+                        <TextField
+                            fullWidth
+                            InputProps={{
+                                startAdorment: (
+                                    <InputAdorment position="start">
+                                        <SvgIcon
+                                            fontSize="small"
+                                            color="action"
+                                        >
+                                            <SearchIcon />
+                                        </SvgIcon>
+                                    </InputAdorment>
+                                )
+                            }}
+                            placeholder="Search customer"
+                            variant="outlined"
+                        />
+                    </Box>
+                </CardContent>
+            </Card>
         </Box>
     </Box>
 };
