@@ -19,7 +19,7 @@ const EditCustomer = () => {
         alert("El usuario se registró con éxito.")
         navigate('/login', { replace: true });
     }
- 
+
     return (
         <>
             <Helmet>
@@ -33,11 +33,12 @@ const EditCustomer = () => {
                     height: '100%',
                     justifyContent: 'center'
                 }}
-                >
+            >
                 <Container maxWidth="sm">
                     <Formik
                         initialValues={{
                             email: '',
+                            phone: '',
                             firstName: '',
                             lastName: '',
                         }}
@@ -45,6 +46,7 @@ const EditCustomer = () => {
                             Yup.object().shape({
                                 email: Yup.string().email('Must be valid email').max(255).required('Email is required'),
                                 firstName: Yup.string().max(255).required('First name is required'),
+                                phone: Yup.string().max(60),
                                 lastName: Yup.string().max(255).required('Last name is required')
                             })
                         }
@@ -132,7 +134,6 @@ const EditCustomer = () => {
                                         Crear
                                     </Button>
                                 </Box>
-                                
                             </form>
                         )}
                     </Formik>
