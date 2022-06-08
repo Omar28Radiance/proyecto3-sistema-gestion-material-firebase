@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from "firebase/auth";
-import { collection, getDocs, setDoc, getFirestore } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, getFirestore, deleteDoc } from "firebase/firestore";
 import { uuid } from 'uuidv4';
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -59,6 +59,10 @@ export function firebaseCrear(coleccion, objeto) {
     objeto.id = uuid();
     let referencia = doc(getFirestore(), coleccion, objeto.id)
     setDoc(referencia, objeto);
+}
+
+export async function firebaseEliminar(coleccion, id) {
+    await deleteDoc(doc(getFirestore(), coleccion, id));
 }
 //Continuar video desde minuto 04:52:05
 //NO ENTENDÍ QUE PASÓ ENTRE EL MINUTO 04:48:28 Y EL MINUTO 04:48:40

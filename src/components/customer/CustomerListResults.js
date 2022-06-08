@@ -130,7 +130,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                             onCLick={() => {
                                                 alert("asdasd");
                                             }}
-                                            color="danger"
+                                            color="error"
                                             variant="contained"
                                         >
                                             Eliminar
