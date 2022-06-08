@@ -75,7 +75,7 @@ const CustomerListResults = ({ customers, ...rest}) => {
                                         color="primary"
                                         indeterminate={
                                             selectedCustomerIds.length > 0 && selectedCustomerIds.length < customers.length}
-                                            onChange={handleSelectAll}
+                                        onChange={handleSelectAll}
                                     />
                                 </TableCell>
                                 <TableCell>
@@ -85,18 +85,16 @@ const CustomerListResults = ({ customers, ...rest}) => {
                                     Email
                                 </TableCell>
                                 <TableCell>
+                                    Location
+                                </TableCell>
+                                <TableCell>
                                     Phone
+                                </TableCell>
+                                <TableCell>
+                                    Registration date
                                 </TableCell>
                             </TableRow>
                         </TableHead>
-
-
-
-
-
-
-
-
                         <TableBody>
                             {customers.slice(0, limit).map((customer) => (
                                 <TableRow
@@ -118,17 +116,11 @@ const CustomerListResults = ({ customers, ...rest}) => {
                                                 display: 'flex'
                                             }}
                                         >
-                                            <Avatar
-                                                src={customer.avatrUrl}
-                                                sx={{ mr: 2 }}
-                                            >
-                                                {getInitials(customer.name)}
-                                            </Avatar>
                                             <Typography
                                                 color="textPrimary"
                                                 variant="body1"
                                             >
-                                                {customer.name}
+                                                {customer.firstname} {customer.lastname}
                                             </Typography>
                                         </Box>
                                     </TableCell>
@@ -136,13 +128,7 @@ const CustomerListResults = ({ customers, ...rest}) => {
                                         {customer.email}
                                     </TableCell>
                                     <TableCell>
-                                        {`${customer.address.city}, ${customer.address.state}, ${customer.address.country}`}
-                                    </TableCell>
-                                    <TableCell>
                                         {customer.phone}
-                                    </TableCell>
-                                    <TableCell>
-                                        {moment(customer.createdAt).format('DD/MM/YYYY')}
                                     </TableCell>
                                 </TableRow>
                             ))}
