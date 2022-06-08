@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
-    Avatar,
     Box,
+    Button,
     Card,
     Checkbox,
     Table,
@@ -124,17 +124,19 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                     <TableCell>
                                         {customer.phone}
                                     </TableCell>
+
                                     <TableCell>
                                         <Button
                                             onCLick={() => {
-                                                navigate('/app/customer-new', { replace: true });
+                                                alert("asdasd");
                                             }}
-                                            color="primary"
+                                            color="danger"
                                             variant="contained"
                                         >
-                                            Add customer
+                                            Eliminar
                                         </Button>
                                     </TableCell>
+
                                 </TableRow>
                             ))}
                         </TableBody>
