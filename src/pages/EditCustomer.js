@@ -70,14 +70,7 @@ const EditCustomer = () => {
                                         color="textPrimary"
                                         variant="h2"
                                     >
-                                        Create new account
-                                    </Typography>
-                                    <Typography
-                                        color="textSecondary"
-                                        gutterBottom
-                                        variant="body2"
-                                    >
-                                        Use your email to create new account
+                                        Crear nuevo Cliente
                                     </Typography>
                                 </Box>
                                 <TextField
@@ -126,19 +119,10 @@ const EditCustomer = () => {
                                         type="submit"
                                         variant="contained"
                                     >
-                                        Sign up now
+                                        Crear
                                     </Button>
                                 </Box>
-                                <Typography
-                                    color="textSecondary"
-                                    variant="body1"
-                                >
-                                    Have an account?
-                                    {''}
-                                    <Link component={RouterLink} to="/login" underline="hover">
-                                        Sign in
-                                    </Link>
-                                </Typography>
+                                
                             </form>
                         )}
                     </Formik>

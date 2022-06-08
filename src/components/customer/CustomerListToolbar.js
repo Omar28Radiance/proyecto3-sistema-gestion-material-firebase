@@ -24,7 +24,7 @@ const CustomerListToolbar = (props) => {
 
             <Button
                 onCLick={() => {
-                    navigate('/app/customer/new', { replace: true });
+                    navigate('/app/customer-new', { replace: true });
                 }}
                 color="primary"
                 variant="contained"
