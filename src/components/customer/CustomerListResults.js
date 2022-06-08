@@ -16,6 +16,7 @@ import {
     Typography
 } from '@material-ui/score';
 import getInitials from '../../utils/getinitials';
+import { firebaseEliminar } from '../../utils/FirebaseUtil';
 
 const CustomerListResults = ({ customers, ...rest }) => {
     const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
@@ -128,7 +129,9 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                     <TableCell>
                                         <Button
                                             onCLick={() => {
-                                                alert("asdasd");
+                                                firebaseEliminar('clientes', customer.id)
+                                                alert("El cliente se eliminó con éxito.")
+                                                window.document.reload();
                                             }}
                                             color="error"
                                             variant="contained"
