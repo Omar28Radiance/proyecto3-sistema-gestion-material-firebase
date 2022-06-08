@@ -17,7 +17,7 @@ import {
 } from '@material-ui/score';
 import getInitials from '../../utils/getinitials';
 
-const CustomerListResults = ({ customers, ...rest}) => {
+const CustomerListResults = ({ customers, ...rest }) => {
     const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
     const [limit, setLimit] = useState(10);
     const [page, setPage] = useState(0);
@@ -42,7 +42,7 @@ const CustomerListResults = ({ customers, ...rest}) => {
             newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds, id);
         } else if (selectedIndex === 0) {
             newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds.slice(1));
-        } else if (selectedIndex === selectedCustomerIds.length -1) {
+        } else if (selectedIndex === selectedCustomerIds.length - 1) {
             newSelectedCustomerIds = newSelectedCustomerIds.concat(selectedCustomerIds.slice(0, -1));
         } else if (selectedIndex > 0) {
             newSelectedCustomerIds = newSelectedCustomerIds.concat(
@@ -85,13 +85,7 @@ const CustomerListResults = ({ customers, ...rest}) => {
                                     Email
                                 </TableCell>
                                 <TableCell>
-                                    Location
-                                </TableCell>
-                                <TableCell>
                                     Phone
-                                </TableCell>
-                                <TableCell>
-                                    Registration date
                                 </TableCell>
                             </TableRow>
                         </TableHead>
