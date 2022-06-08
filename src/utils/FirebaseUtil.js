@@ -59,3 +59,4 @@ export function firebaseCrear(coleccion, objeto) {
     setDoc(referencia, objeto);
 }
 //Continuar video desde minuto 04:45:31
+//NO ENTENDÍ QUE PASÓ ENTRE EL MINUTO 04:48:28 Y EL MINUTO 04:48:40
