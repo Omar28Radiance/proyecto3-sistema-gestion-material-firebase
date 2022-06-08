@@ -2,19 +2,20 @@ import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
 import CustomerListResults from '../components/customer/CustomerListResults';
 import CustomerListToolbar from '../components/customer/CustomerListToolbar';
-import customers from '../_mocks_/customers';
 import { firebaseBuscar } from '../utils/FirebaseUtil';
 import { useEffect } from 'react';
 
 const CustomerList = () => {
+
+    const [clientes, setClientes] = useState([]);
 
     useEffect(() => {
         buscarClientes();
     }, [])
 
     const buscarClientes = () => {
-        let clientes = await firebaseBuscar('clientes');
-        debugger;
+        let resultado = await firebaseBuscar('clientes');
+        setClientes(resultado)
     }
 
     return <>

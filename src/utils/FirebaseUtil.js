@@ -44,8 +44,14 @@ export async function firebaseIniciarSesion(email, password) {
 }
 
 export async function firebaseBuscar(coleccionABuscar) {
+    let listado = [];
     let consulta = collection(getFirestore(), coleccionABuscar);
     let resultado = await getDocs(consulta);
-    resultado.forEach
+    resultado.forEach(documento => {
+        let objeto = documento.data(); // esto nos va a traer un objeto como {email, telefono, etc}
+        objeto.id = documento.id; // esto nos va a traer el id del cliente
+        listado.push(objeto); //este objeto se va a agregar al listado
+    });
+    return listado;
 }
-//Continuar video desde minuto 04:24:16
+//Continuar video desde minuto 04:24:40
