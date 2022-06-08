@@ -8,9 +8,13 @@ import {
     SvgIcon
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
+import { useNavigate } from 'react-router';
 
-const CustomerListToolbar = (props) => (
-    <Box {...props}>
+const CustomerListToolbar = (props) => {
+
+    const navigate = useNavigate();
+
+    return <Box {...props}>
         <Box
             sx={{
                 display: 'flex',
@@ -32,11 +36,18 @@ const CustomerListToolbar = (props) => (
                 InputProps={{
                     startAdorment: (
                         <InputAdorment position="start">
-                            <SvgIcon></SvgIcon>
+                            <SvgIcon
+                                fontSize="small"
+                                color="action"
+                            >
+                                <SearchIcon />
+                            </SvgIcon>
                         </InputAdorment>
                     )
                 }}
             ></TextField>
         </Box>
     </Box>
-)
+};
+
+export default CustomerListToolbar;
