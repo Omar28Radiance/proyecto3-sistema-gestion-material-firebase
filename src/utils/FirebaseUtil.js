@@ -54,7 +54,8 @@ export async function firebaseBuscar(coleccionABuscar) {
     return listado;
 }
 
-export function firebaseGuardar(coleccion, documento) {
-    setDoc(documento.id, documento);
+export function firebaseCrear(coleccion, objeto) {
+    let documento = doc(getFirestore(), coleccion, objeto.id)
+    setDoc(documento, objeto);
 }
-//Continuar video desde minuto 04:42:52
+//Continuar video desde minuto 04:45:31
