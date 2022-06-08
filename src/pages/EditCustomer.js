@@ -16,9 +16,7 @@ const EditCustomer = () => {
 
     const crearCliente = (cliente) => {
         firebaseCrear('clientes', cliente)
-        firebasecrearCliente(usuario.email, usuario.password);
-        alert("El usuario se registró con éxito.")
-        navigate('/login', { replace: true });
+        navigate('/customers', { replace: true });
     }
 
     return (
