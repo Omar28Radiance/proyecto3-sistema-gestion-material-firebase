@@ -54,7 +54,7 @@ export async function firebaseBuscar(coleccionABuscar) {
     return listado;
 }
 
-function firebaseGuardar(coleccion, documento) {
+export function firebaseGuardar(coleccion, documento) {
     setDoc(documento.id, documento);
 }
 //Continuar video desde minuto 04:42:52
