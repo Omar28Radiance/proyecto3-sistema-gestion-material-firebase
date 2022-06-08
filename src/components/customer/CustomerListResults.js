@@ -131,7 +131,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                             onCLick={() => {
                                                 firebaseEliminar('clientes', customer.id)
                                                 alert("El cliente se eliminó con éxito.")
-                                                window.document.reload();
+                                                window.location.reload(true);
                                             }}
                                             color="error"
                                             variant="contained"

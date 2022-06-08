@@ -64,6 +64,6 @@ export function firebaseCrear(coleccion, objeto) {
 export async function firebaseEliminar(coleccion, id) {
     await deleteDoc(doc(getFirestore(), coleccion, id));
 }
-//Continuar video desde minuto 04:52:05
+//Continuar video desde minuto 05:00:00
 //NO ENTENDÍ QUE PASÓ ENTRE EL MINUTO 04:48:28 Y EL MINUTO 04:48:40
 //UUID significa: unstable_useId
