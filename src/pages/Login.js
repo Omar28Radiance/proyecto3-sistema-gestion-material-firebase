@@ -21,7 +21,7 @@ const Login = () => {
         if (sesionIniciada) {
             navigate('/app/dashboard', { replace: true });
         } else {
-            alert ('Las credenciales no son correctas');
+            alert('Las credenciales no son correctas');
         }
     }
 
@@ -104,35 +104,39 @@ const Login = () => {
                                 />
                                 <Box
                                     sx={{ py: 2 }}>
-                                    <Checkbox
-                                        checked={values.policy}
-                                        name="policy"
-                                        onChange={handleChange}
-                                    />
-                                    <Typography
-                                        color="textSecondary"
-                                        variant="body1"
+                                    <Button
+                                        color="primary"
+                                        disabled={isSubmitting}
+                                        fullWidth
+                                        size="large"
+                                        type="submit"
+                                        variant="contained"
                                     >
-                                        I have read the
-                                        {''}
-                                        <Link
-                                            color="primary"
-                                            component={RouterLink}
-                                            to="#"
-                                            underline="always"
-                                            variant="h6"
-                                        >
-                                            Sign up
-                                        </Link>
-                                    </Typography>
+                                        Iniciar sesión
+                                    </Button>
                                 </Box>
+                                <Typography
+                                    color="textSecondary"
+                                    variant="body1"
+                                >
+                                    Don't have an account?
+                                    {''}
+                                    <Link
+                                        component={RouterLink}
+                                        to="/register"
+                                        variant="h6"
+                                        underline="hover"
+                                    >
+                                        Sign up
+                                    </Link>
+                                </Typography>
                             </form>
                         )}
                     </Formik>
                 </Container>
             </Box>
         </>
-    )
+    );
 };
 
 export default Login;

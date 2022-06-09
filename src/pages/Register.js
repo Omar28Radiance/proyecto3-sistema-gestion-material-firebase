@@ -22,7 +22,7 @@ const Register = () => {
         alert("El usuario se registró con éxito.")
         navigate('/login', { replace: true });
     }
- 
+
     return (
         <>
             <Helmet>
@@ -35,7 +35,8 @@ const Register = () => {
                     flexDirection: 'column',
                     height: '100%',
                     justifyContent: 'center'
-                }}>
+                }}
+            >
                 <Container maxWidth="sm">
                     <Formik
                         initialValues={{
@@ -96,9 +97,9 @@ const Register = () => {
                                     variant="outlined"
                                 />
                                 <TextField
-                                    error={Boolean(touched.password && errors.lastName)}
+                                    error={Boolean(touched.lastName && errors.lastName)}
                                     fullWidth
-                                    helperText={touched.firstName && errors.lastName}
+                                    helperText={touched.lastName && errors.lastName}
                                     label="Last name"
                                     margin="normal"
                                     name="lastName"
@@ -117,7 +118,7 @@ const Register = () => {
                                     onBlur={handleBlur}
                                     onchange={handleChange}
                                     type="email"
-                                    value={values.firstName}
+                                    value={values.email}
                                     variant="outlined"
                                 />
                                 <TextField
@@ -146,7 +147,7 @@ const Register = () => {
                                         onChange={handleChange}
                                     />
                                     <Typography
-                                        color="primary"
+                                        color="text Secondary"
                                         variant="body1"
                                     >
                                         I have read the
@@ -185,7 +186,7 @@ const Register = () => {
                                 >
                                     Have an account?
                                     {''}
-                                    <Link component={RouterLink} to="/login" underline="hover">
+                                    <Link component={RouterLink} to="/login" variant="h6" underline="hover">
                                         Sign in
                                     </Link>
                                 </Typography>

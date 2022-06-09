@@ -2,8 +2,8 @@ import { Helmet } from 'react-helmet';
 import { Box, Container } from '@material-ui/core';
 import CustomerListResults from '../components/customer/CustomerListResults';
 import CustomerListToolbar from '../components/customer/CustomerListToolbar';
-import { firebaseBuscar } from '../utils/FirebaseUtil';
-import { useEffect } from 'react';
+import { firebaseBuscar } from 'src/utils/FirebaseUtil';
+import { useEffect, useState } from 'react';
 
 const CustomerList = () => {
 
@@ -13,9 +13,9 @@ const CustomerList = () => {
         buscarClientes();
     }, [])
 
-    const buscarClientes = () => {
+    const buscarClientes = async () => {
         let resultado = await firebaseBuscar('clientes');
-        setClientes(resultado)
+        setClientes(resultado);
     }
 
     return <>

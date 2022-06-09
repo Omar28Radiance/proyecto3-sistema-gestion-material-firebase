@@ -16,7 +16,7 @@ const EditCustomer = () => {
 
     const crearCliente = (cliente) => {
         firebaseCrear('clientes', cliente)
-        navigate('/customers', { replace: true });
+        navigate('/app/customers', { replace: true });
     }
 
     return (
@@ -43,7 +43,7 @@ const EditCustomer = () => {
                         }}
                         validationSchema={
                             Yup.object().shape({
-                                email: Yup.string().email('Must be valid email').max(255).required('Email is required'),
+                                email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
                                 firstName: Yup.string().max(255).required('First name is required'),
                                 phone: Yup.string().max(60),
                                 lastName: Yup.string().max(255).required('Last name is required')
@@ -112,7 +112,7 @@ const EditCustomer = () => {
                                     error={Boolean(touched.phone && errors.phone)}
                                     fullWidth
                                     helperText={touched.phone && errors.phone}
-                                    label="Phone Number"
+                                    label="Phone Address"
                                     margin="normal"
                                     name="phone"
                                     onBlur={handleBlur}
@@ -133,6 +133,7 @@ const EditCustomer = () => {
                                         Crear
                                     </Button>
                                 </Box>
+                                
                             </form>
                         )}
                     </Formik>
