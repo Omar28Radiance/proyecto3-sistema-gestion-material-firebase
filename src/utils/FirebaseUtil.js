@@ -29,7 +29,7 @@ export function firebaseConfig() {
 export function firebaseRegistrarUsuario(email, password) {
     createUserWithEmailAndPassword(getAuth(), email, password)
     .then(credenciales => {
-        //credenciales.user
+        //credenciales.user.
     })
 }
 
