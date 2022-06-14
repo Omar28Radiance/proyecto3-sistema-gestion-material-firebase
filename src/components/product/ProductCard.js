@@ -7,9 +7,9 @@ import {
     Divider,
     Grid,
     Typography
-} from '@material-ui/core';
-import AccessTimeIcon from '@material-ui/icons/AccesTime';
-import GetAppIcon from '@material-ui/icons/GetApp';
+} from '@material-ui/icons/AccessTime';
+import AccessTimeIcon from '@material-ui/icons/AccessTime'
+import GetAppIcon from '@material-ui/icons/GetApp'
 
 const ProductCard = ({ product, ...rest }) => (
     <Card
@@ -30,8 +30,8 @@ const ProductCard = ({ product, ...rest }) => (
             >
                 <Avatar
                     alt="Product"
-                    arc={product.media}
-                    variant="square"
+                    src={product.media}
+                    variant="square" 
                 />
             </Box>
             <Typography
@@ -75,7 +75,6 @@ const ProductCard = ({ product, ...rest }) => (
                         Updated 2hr ago
                     </Typography>
                 </Grid>
-
                 <Grid
                     item
                     sx={{
@@ -88,7 +87,7 @@ const ProductCard = ({ product, ...rest }) => (
                         color="textSecondary"
                         display="inline"
                         sx={{ pl: 1 }}
-                        vairant="body2"
+                        variant="body2"
                     >
                         {product.totalDownloads}
                         {' '}
