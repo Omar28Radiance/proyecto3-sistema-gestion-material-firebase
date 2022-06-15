@@ -2,10 +2,10 @@ import {
     Box,
     Button,
     Card,
-    CardContent,
-    TextField,
+    CardContent, 
     InputAdorment,
-    SvgIcon
+    SvgIcon, 
+    TextField
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 import { useNavigate } from 'react-router';

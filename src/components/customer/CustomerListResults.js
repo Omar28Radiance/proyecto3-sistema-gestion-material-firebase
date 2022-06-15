@@ -1,7 +1,3 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import moment from 'moment';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
     Box,
     Button,
@@ -15,8 +11,9 @@ import {
     TableRow,
     Typography
 } from '@material-ui/score';
-import getInitials from '../../utils/getinitials';
-import { firebaseEliminar } from '../../utils/FirebaseUtil';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 const CustomerListResults = ({ customers, ...rest }) => {
     const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
@@ -75,7 +72,9 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                         checked={selectedCustomerIds.length === customers.length}
                                         color="primary"
                                         indeterminate={
-                                            selectedCustomerIds.length > 0 && selectedCustomerIds.length < customers.length}
+                                            selectedCustomerIds.length > 0 
+                                            && selectedCustomerIds.length < customers.length
+                                        }
                                         onChange={handleSelectAll}
                                     />
                                 </TableCell>
@@ -129,7 +128,7 @@ const CustomerListResults = ({ customers, ...rest }) => {
                                     <TableCell>
                                         <Button
                                             onCLick={() => {
-                                                firebaseEliminar('clientes', customer.id)
+                                                // firebaseEliminar('clientes', customer.id)
                                                 alert("El cliente se eliminó con éxito.")
                                                 window.location.reload(true);
                                             }}
@@ -159,10 +158,8 @@ const CustomerListResults = ({ customers, ...rest }) => {
     );
 };
 
+CustomerListResults.propTypes = {
+    customers: PropTypes.array.isRequired
+};
 
-
-
-
-
-
-
+export default CustomerListResults;
